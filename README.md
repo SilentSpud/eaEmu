@@ -1,3 +1,3 @@
-## Notes:
-* something leaks memory pretty badly, never fixed it
-* db backend uses django's ORM
+# mercs2-emu
+
+This fork focuses on stripping this down to only support Mercenaries 2

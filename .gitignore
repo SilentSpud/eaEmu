@@ -1,2 +1,7 @@
 *.pyc
 *.log
+
+.venv
+*.crt
+*.key
+*.mod.txt

@@ -11,7 +11,7 @@ from ZSI.TCcompound import ComplexType, Struct
 from AuthService_types import *
 from ZSI.twisted.WSresource import WSResource
 
-# Messages  
+# Messages
 LoginUserSoapIn = GED("http://gamespy.net/AuthService/", "LoginUser").pyclass
 
 LoginUserSoapOut = GED("http://gamespy.net/AuthService/", "LoginUserResponse").pyclass
@@ -58,76 +58,75 @@ class AuthService(WSResource):
     soapAction = {}
     root = {}
 
-    def __init__(self, post='/AuthService/AuthService.asmx', **kw):
+    def __init__(self, post="/AuthService/AuthService.asmx", **kw):
         WSResource.__init__(self)
 
     def soap_LoginUser(self, ps, **kw):
         request = ps.Parse(LoginUserSoapIn.typecode)
-        return request,LoginUserSoapOut()
+        return request, LoginUserSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/LoginUser'] = 'soap_LoginUser'
-    root[(LoginUserSoapIn.typecode.nspname,LoginUserSoapIn.typecode.pname)] = 'soap_LoginUser'
+    soapAction["http://gamespy.net/AuthService/LoginUser"] = "soap_LoginUser"
+    root[(LoginUserSoapIn.typecode.nspname, LoginUserSoapIn.typecode.pname)] = "soap_LoginUser"
 
     def soap_LoginUniqueNick(self, ps, **kw):
         request = ps.Parse(LoginUniqueNickSoapIn.typecode)
-        return request,LoginUniqueNickSoapOut()
+        return request, LoginUniqueNickSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/LoginUniqueNick'] = 'soap_LoginUniqueNick'
-    root[(LoginUniqueNickSoapIn.typecode.nspname,LoginUniqueNickSoapIn.typecode.pname)] = 'soap_LoginUniqueNick'
+    soapAction["http://gamespy.net/AuthService/LoginUniqueNick"] = "soap_LoginUniqueNick"
+    root[(LoginUniqueNickSoapIn.typecode.nspname, LoginUniqueNickSoapIn.typecode.pname)] = "soap_LoginUniqueNick"
 
     def soap_LoginProfile(self, ps, **kw):
         request = ps.Parse(LoginProfileSoapIn.typecode)
-        return request,LoginProfileSoapOut()
+        return request, LoginProfileSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/LoginProfile'] = 'soap_LoginProfile'
-    root[(LoginProfileSoapIn.typecode.nspname,LoginProfileSoapIn.typecode.pname)] = 'soap_LoginProfile'
+    soapAction["http://gamespy.net/AuthService/LoginProfile"] = "soap_LoginProfile"
+    root[(LoginProfileSoapIn.typecode.nspname, LoginProfileSoapIn.typecode.pname)] = "soap_LoginProfile"
 
     def soap_LoginRemoteAuth(self, ps, **kw):
         request = ps.Parse(LoginRemoteAuthSoapIn.typecode)
-        return request,LoginRemoteAuthSoapOut()
+        return request, LoginRemoteAuthSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/LoginRemoteAuth'] = 'soap_LoginRemoteAuth'
-    root[(LoginRemoteAuthSoapIn.typecode.nspname,LoginRemoteAuthSoapIn.typecode.pname)] = 'soap_LoginRemoteAuth'
+    soapAction["http://gamespy.net/AuthService/LoginRemoteAuth"] = "soap_LoginRemoteAuth"
+    root[(LoginRemoteAuthSoapIn.typecode.nspname, LoginRemoteAuthSoapIn.typecode.pname)] = "soap_LoginRemoteAuth"
 
     def soap_VerifyLoginUniqueNick(self, ps, **kw):
         request = ps.Parse(VerifyLoginUniqueNickSoapIn.typecode)
-        return request,VerifyLoginUniqueNickSoapOut()
+        return request, VerifyLoginUniqueNickSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/VerifyLoginUniqueNick'] = 'soap_VerifyLoginUniqueNick'
-    root[(VerifyLoginUniqueNickSoapIn.typecode.nspname,VerifyLoginUniqueNickSoapIn.typecode.pname)] = 'soap_VerifyLoginUniqueNick'
+    soapAction["http://gamespy.net/AuthService/VerifyLoginUniqueNick"] = "soap_VerifyLoginUniqueNick"
+    root[(VerifyLoginUniqueNickSoapIn.typecode.nspname, VerifyLoginUniqueNickSoapIn.typecode.pname)] = "soap_VerifyLoginUniqueNick"
 
     def soap_VerifyLoginProfile(self, ps, **kw):
         request = ps.Parse(VerifyLoginProfileSoapIn.typecode)
-        return request,VerifyLoginProfileSoapOut()
+        return request, VerifyLoginProfileSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/VerifyLoginProfile'] = 'soap_VerifyLoginProfile'
-    root[(VerifyLoginProfileSoapIn.typecode.nspname,VerifyLoginProfileSoapIn.typecode.pname)] = 'soap_VerifyLoginProfile'
+    soapAction["http://gamespy.net/AuthService/VerifyLoginProfile"] = "soap_VerifyLoginProfile"
+    root[(VerifyLoginProfileSoapIn.typecode.nspname, VerifyLoginProfileSoapIn.typecode.pname)] = "soap_VerifyLoginProfile"
 
     def soap_LoginTicket(self, ps, **kw):
         request = ps.Parse(LoginTicketSoapIn.typecode)
-        return request,LoginTicketSoapOut()
+        return request, LoginTicketSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/LoginTicket'] = 'soap_LoginTicket'
-    root[(LoginTicketSoapIn.typecode.nspname,LoginTicketSoapIn.typecode.pname)] = 'soap_LoginTicket'
+    soapAction["http://gamespy.net/AuthService/LoginTicket"] = "soap_LoginTicket"
+    root[(LoginTicketSoapIn.typecode.nspname, LoginTicketSoapIn.typecode.pname)] = "soap_LoginTicket"
 
     def soap_AuthRefreshCertificate(self, ps, **kw):
         request = ps.Parse(AuthRefreshCertificateSoapIn.typecode)
-        return request,AuthRefreshCertificateSoapOut()
+        return request, AuthRefreshCertificateSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/AuthRefreshCertificate'] = 'soap_AuthRefreshCertificate'
-    root[(AuthRefreshCertificateSoapIn.typecode.nspname,AuthRefreshCertificateSoapIn.typecode.pname)] = 'soap_AuthRefreshCertificate'
+    soapAction["http://gamespy.net/AuthService/AuthRefreshCertificate"] = "soap_AuthRefreshCertificate"
+    root[(AuthRefreshCertificateSoapIn.typecode.nspname, AuthRefreshCertificateSoapIn.typecode.pname)] = "soap_AuthRefreshCertificate"
 
     def soap_AuthIsCertificateValid(self, ps, **kw):
         request = ps.Parse(AuthIsCertificateValidSoapIn.typecode)
-        return request,AuthIsCertificateValidSoapOut()
+        return request, AuthIsCertificateValidSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/AuthIsCertificateValid'] = 'soap_AuthIsCertificateValid'
-    root[(AuthIsCertificateValidSoapIn.typecode.nspname,AuthIsCertificateValidSoapIn.typecode.pname)] = 'soap_AuthIsCertificateValid'
+    soapAction["http://gamespy.net/AuthService/AuthIsCertificateValid"] = "soap_AuthIsCertificateValid"
+    root[(AuthIsCertificateValidSoapIn.typecode.nspname, AuthIsCertificateValidSoapIn.typecode.pname)] = "soap_AuthIsCertificateValid"
 
     def soap_LoginPs3Cert(self, ps, **kw):
         request = ps.Parse(LoginPs3CertSoapIn.typecode)
-        return request,LoginPs3CertSoapOut()
+        return request, LoginPs3CertSoapOut()
 
-    soapAction['http://gamespy.net/AuthService/LoginPs3Cert'] = 'soap_LoginPs3Cert'
-    root[(LoginPs3CertSoapIn.typecode.nspname,LoginPs3CertSoapIn.typecode.pname)] = 'soap_LoginPs3Cert'
-
+    soapAction["http://gamespy.net/AuthService/LoginPs3Cert"] = "soap_LoginPs3Cert"
+    root[(LoginPs3CertSoapIn.typecode.nspname, LoginPs3CertSoapIn.typecode.pname)] = "soap_LoginPs3Cert"

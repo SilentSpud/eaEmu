@@ -11,7 +11,7 @@ from ZSI.TCcompound import ComplexType, Struct
 from StorageServer_types import *
 from ZSI.twisted.WSresource import WSResource
 
-# Messages  
+# Messages
 CreateRecordSoapIn = GED("http://gamespy.net/sake", "CreateRecord").pyclass
 
 CreateRecordSoapOut = GED("http://gamespy.net/sake", "CreateRecordResponse").pyclass
@@ -66,90 +66,89 @@ class StorageServer(WSResource):
     soapAction = {}
     root = {}
 
-    def __init__(self, post='/SakeStorageServer/StorageServer.asmx', **kw):
+    def __init__(self, post="/SakeStorageServer/StorageServer.asmx", **kw):
         WSResource.__init__(self)
 
     def soap_CreateRecord(self, ps, **kw):
         request = ps.Parse(CreateRecordSoapIn.typecode)
-        return request,CreateRecordSoapOut()
+        return request, CreateRecordSoapOut()
 
-    soapAction['http://gamespy.net/sake/CreateRecord'] = 'soap_CreateRecord'
-    root[(CreateRecordSoapIn.typecode.nspname,CreateRecordSoapIn.typecode.pname)] = 'soap_CreateRecord'
+    soapAction["http://gamespy.net/sake/CreateRecord"] = "soap_CreateRecord"
+    root[(CreateRecordSoapIn.typecode.nspname, CreateRecordSoapIn.typecode.pname)] = "soap_CreateRecord"
 
     def soap_UpdateRecord(self, ps, **kw):
         request = ps.Parse(UpdateRecordSoapIn.typecode)
-        return request,UpdateRecordSoapOut()
+        return request, UpdateRecordSoapOut()
 
-    soapAction['http://gamespy.net/sake/UpdateRecord'] = 'soap_UpdateRecord'
-    root[(UpdateRecordSoapIn.typecode.nspname,UpdateRecordSoapIn.typecode.pname)] = 'soap_UpdateRecord'
+    soapAction["http://gamespy.net/sake/UpdateRecord"] = "soap_UpdateRecord"
+    root[(UpdateRecordSoapIn.typecode.nspname, UpdateRecordSoapIn.typecode.pname)] = "soap_UpdateRecord"
 
     def soap_DeleteRecord(self, ps, **kw):
         request = ps.Parse(DeleteRecordSoapIn.typecode)
-        return request,DeleteRecordSoapOut()
+        return request, DeleteRecordSoapOut()
 
-    soapAction['http://gamespy.net/sake/DeleteRecord'] = 'soap_DeleteRecord'
-    root[(DeleteRecordSoapIn.typecode.nspname,DeleteRecordSoapIn.typecode.pname)] = 'soap_DeleteRecord'
+    soapAction["http://gamespy.net/sake/DeleteRecord"] = "soap_DeleteRecord"
+    root[(DeleteRecordSoapIn.typecode.nspname, DeleteRecordSoapIn.typecode.pname)] = "soap_DeleteRecord"
 
     def soap_SearchForRecords(self, ps, **kw):
         request = ps.Parse(SearchForRecordsSoapIn.typecode)
-        return request,SearchForRecordsSoapOut()
+        return request, SearchForRecordsSoapOut()
 
-    soapAction['http://gamespy.net/sake/SearchForRecords'] = 'soap_SearchForRecords'
-    root[(SearchForRecordsSoapIn.typecode.nspname,SearchForRecordsSoapIn.typecode.pname)] = 'soap_SearchForRecords'
+    soapAction["http://gamespy.net/sake/SearchForRecords"] = "soap_SearchForRecords"
+    root[(SearchForRecordsSoapIn.typecode.nspname, SearchForRecordsSoapIn.typecode.pname)] = "soap_SearchForRecords"
 
     def soap_GetMyRecords(self, ps, **kw):
         request = ps.Parse(GetMyRecordsSoapIn.typecode)
-        return request,GetMyRecordsSoapOut()
+        return request, GetMyRecordsSoapOut()
 
-    soapAction['http://gamespy.net/sake/GetMyRecords'] = 'soap_GetMyRecords'
-    root[(GetMyRecordsSoapIn.typecode.nspname,GetMyRecordsSoapIn.typecode.pname)] = 'soap_GetMyRecords'
+    soapAction["http://gamespy.net/sake/GetMyRecords"] = "soap_GetMyRecords"
+    root[(GetMyRecordsSoapIn.typecode.nspname, GetMyRecordsSoapIn.typecode.pname)] = "soap_GetMyRecords"
 
     def soap_GetSpecificRecords(self, ps, **kw):
         request = ps.Parse(GetSpecificRecordsSoapIn.typecode)
-        return request,GetSpecificRecordsSoapOut()
+        return request, GetSpecificRecordsSoapOut()
 
-    soapAction['http://gamespy.net/sake/GetSpecificRecords'] = 'soap_GetSpecificRecords'
-    root[(GetSpecificRecordsSoapIn.typecode.nspname,GetSpecificRecordsSoapIn.typecode.pname)] = 'soap_GetSpecificRecords'
+    soapAction["http://gamespy.net/sake/GetSpecificRecords"] = "soap_GetSpecificRecords"
+    root[(GetSpecificRecordsSoapIn.typecode.nspname, GetSpecificRecordsSoapIn.typecode.pname)] = "soap_GetSpecificRecords"
 
     def soap_GetRandomRecords(self, ps, **kw):
         request = ps.Parse(GetRandomRecordsSoapIn.typecode)
-        return request,GetRandomRecordsSoapOut()
+        return request, GetRandomRecordsSoapOut()
 
-    soapAction['http://gamespy.net/sake/GetRandomRecords'] = 'soap_GetRandomRecords'
-    root[(GetRandomRecordsSoapIn.typecode.nspname,GetRandomRecordsSoapIn.typecode.pname)] = 'soap_GetRandomRecords'
+    soapAction["http://gamespy.net/sake/GetRandomRecords"] = "soap_GetRandomRecords"
+    root[(GetRandomRecordsSoapIn.typecode.nspname, GetRandomRecordsSoapIn.typecode.pname)] = "soap_GetRandomRecords"
 
     def soap_GetRecordCount(self, ps, **kw):
         request = ps.Parse(GetRecordCountSoapIn.typecode)
-        return request,GetRecordCountSoapOut()
+        return request, GetRecordCountSoapOut()
 
-    soapAction['http://gamespy.net/sake/GetRecordCount'] = 'soap_GetRecordCount'
-    root[(GetRecordCountSoapIn.typecode.nspname,GetRecordCountSoapIn.typecode.pname)] = 'soap_GetRecordCount'
+    soapAction["http://gamespy.net/sake/GetRecordCount"] = "soap_GetRecordCount"
+    root[(GetRecordCountSoapIn.typecode.nspname, GetRecordCountSoapIn.typecode.pname)] = "soap_GetRecordCount"
 
     def soap_RateRecord(self, ps, **kw):
         request = ps.Parse(RateRecordSoapIn.typecode)
-        return request,RateRecordSoapOut()
+        return request, RateRecordSoapOut()
 
-    soapAction['http://gamespy.net/sake/RateRecord'] = 'soap_RateRecord'
-    root[(RateRecordSoapIn.typecode.nspname,RateRecordSoapIn.typecode.pname)] = 'soap_RateRecord'
+    soapAction["http://gamespy.net/sake/RateRecord"] = "soap_RateRecord"
+    root[(RateRecordSoapIn.typecode.nspname, RateRecordSoapIn.typecode.pname)] = "soap_RateRecord"
 
     def soap_GetRecordLimit(self, ps, **kw):
         request = ps.Parse(GetRecordLimitSoapIn.typecode)
-        return request,GetRecordLimitSoapOut()
+        return request, GetRecordLimitSoapOut()
 
-    soapAction['http://gamespy.net/sake/GetRecordLimit'] = 'soap_GetRecordLimit'
-    root[(GetRecordLimitSoapIn.typecode.nspname,GetRecordLimitSoapIn.typecode.pname)] = 'soap_GetRecordLimit'
+    soapAction["http://gamespy.net/sake/GetRecordLimit"] = "soap_GetRecordLimit"
+    root[(GetRecordLimitSoapIn.typecode.nspname, GetRecordLimitSoapIn.typecode.pname)] = "soap_GetRecordLimit"
 
     def soap_GetMyImages(self, ps, **kw):
         request = ps.Parse(GetMyImagesSoapIn.typecode)
-        return request,GetMyImagesSoapOut()
+        return request, GetMyImagesSoapOut()
 
-    soapAction['http://gamespy.net/sake/GetMyImages'] = 'soap_GetMyImages'
-    root[(GetMyImagesSoapIn.typecode.nspname,GetMyImagesSoapIn.typecode.pname)] = 'soap_GetMyImages'
+    soapAction["http://gamespy.net/sake/GetMyImages"] = "soap_GetMyImages"
+    root[(GetMyImagesSoapIn.typecode.nspname, GetMyImagesSoapIn.typecode.pname)] = "soap_GetMyImages"
 
     def soap_DeleteImage(self, ps, **kw):
         request = ps.Parse(DeleteImageSoapIn.typecode)
-        return request,DeleteImageSoapOut()
+        return request, DeleteImageSoapOut()
 
-    soapAction['http://gamespy.net/sake/DeleteImage'] = 'soap_DeleteImage'
-    root[(DeleteImageSoapIn.typecode.nspname,DeleteImageSoapIn.typecode.pname)] = 'soap_DeleteImage'
-
+    soapAction["http://gamespy.net/sake/DeleteImage"] = "soap_DeleteImage"
+    root[(DeleteImageSoapIn.typecode.nspname, DeleteImageSoapIn.typecode.pname)] = "soap_DeleteImage"

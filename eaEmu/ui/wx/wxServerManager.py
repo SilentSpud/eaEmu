@@ -60,15 +60,15 @@ class ServerManagerFrame(wx.Frame):
         # end wxGlade
 
     def StartServer(self, event): # wxGlade: ServerManagerFrame.<event_handler>
-        print "Event handler `StartServer' not implemented!"
+        print("Event handler `StartServer' not implemented!")
         event.Skip()
 
     def StopServer(self, event): # wxGlade: ServerManagerFrame.<event_handler>
-        print "Event handler `StopServer' not implemented!"
+        print("Event handler `StopServer' not implemented!")
         event.Skip()
 
     def OnHostsButton(self, event): # wxGlade: ServerManagerFrame.<event_handler>
-        print "Event handler `OnHostsButton' not implemented!"
+        print("Event handler `OnHostsButton' not implemented!")
         event.Skip()
 
 # end of class ServerManagerFrame
@@ -127,7 +127,7 @@ class HostsDialog(wx.Dialog):
         # end wxGlade
 
     def OnGroupClick(self, event): # wxGlade: HostsDialog.<event_handler>
-        print "Event handler `OnGroupClick' not implemented!"
+        print("Event handler `OnGroupClick' not implemented!")
         event.Skip()
 
 # end of class HostsDialog

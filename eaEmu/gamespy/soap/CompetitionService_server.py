@@ -11,7 +11,7 @@ from ZSI.TCcompound import ComplexType, Struct
 from CompetitionService_types import *
 from ZSI.twisted.WSresource import WSResource
 
-# Messages  
+# Messages
 CreateSessionSoapIn = GED("http://gamespy.net/competition/", "CreateSession").pyclass
 
 CreateSessionSoapOut = GED("http://gamespy.net/competition/", "CreateSessionResponse").pyclass
@@ -34,34 +34,33 @@ class CompetitionService(WSResource):
     soapAction = {}
     root = {}
 
-    def __init__(self, post='/competitionservice/competitionservice.asmx', **kw):
+    def __init__(self, post="/competitionservice/competitionservice.asmx", **kw):
         WSResource.__init__(self)
 
     def soap_CreateSession(self, ps, **kw):
         request = ps.Parse(CreateSessionSoapIn.typecode)
-        return request,CreateSessionSoapOut()
+        return request, CreateSessionSoapOut()
 
-    soapAction['http://gamespy.net/competition/CreateSession'] = 'soap_CreateSession'
-    root[(CreateSessionSoapIn.typecode.nspname,CreateSessionSoapIn.typecode.pname)] = 'soap_CreateSession'
+    soapAction["http://gamespy.net/competition/CreateSession"] = "soap_CreateSession"
+    root[(CreateSessionSoapIn.typecode.nspname, CreateSessionSoapIn.typecode.pname)] = "soap_CreateSession"
 
     def soap_CreateMatchlessSession(self, ps, **kw):
         request = ps.Parse(CreateMatchlessSessionSoapIn.typecode)
-        return request,CreateMatchlessSessionSoapOut()
+        return request, CreateMatchlessSessionSoapOut()
 
-    soapAction['http://gamespy.net/competition/CreateMatchlessSession'] = 'soap_CreateMatchlessSession'
-    root[(CreateMatchlessSessionSoapIn.typecode.nspname,CreateMatchlessSessionSoapIn.typecode.pname)] = 'soap_CreateMatchlessSession'
+    soapAction["http://gamespy.net/competition/CreateMatchlessSession"] = "soap_CreateMatchlessSession"
+    root[(CreateMatchlessSessionSoapIn.typecode.nspname, CreateMatchlessSessionSoapIn.typecode.pname)] = "soap_CreateMatchlessSession"
 
     def soap_SetReportIntention(self, ps, **kw):
         request = ps.Parse(SetReportIntentionSoapIn.typecode)
-        return request,SetReportIntentionSoapOut()
+        return request, SetReportIntentionSoapOut()
 
-    soapAction['http://gamespy.net/competition/SetReportIntention'] = 'soap_SetReportIntention'
-    root[(SetReportIntentionSoapIn.typecode.nspname,SetReportIntentionSoapIn.typecode.pname)] = 'soap_SetReportIntention'
+    soapAction["http://gamespy.net/competition/SetReportIntention"] = "soap_SetReportIntention"
+    root[(SetReportIntentionSoapIn.typecode.nspname, SetReportIntentionSoapIn.typecode.pname)] = "soap_SetReportIntention"
 
     def soap_SubmitReport(self, ps, **kw):
         request = ps.Parse(SubmitReportSoapIn.typecode)
-        return request,SubmitReportSoapOut()
+        return request, SubmitReportSoapOut()
 
-    soapAction['http://gamespy.net/competition/SubmitReport'] = 'soap_SubmitReport'
-    root[(SubmitReportSoapIn.typecode.nspname,SubmitReportSoapIn.typecode.pname)] = 'soap_SubmitReport'
-
+    soapAction["http://gamespy.net/competition/SubmitReport"] = "soap_SubmitReport"
+    root[(SubmitReportSoapIn.typecode.nspname, SubmitReportSoapIn.typecode.pname)] = "soap_SubmitReport"
