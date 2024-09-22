@@ -1,4 +1,5 @@
 from __future__ import absolute_import
+import types
 
 from . import config
 
@@ -15,17 +16,17 @@ except Exception as e:
 
     traceback.print_exc()
     ## generate dummy classes here so we can at least load up
-    import new
 
     def makeMod(modname):
         for i in reversed(range(len(modname.split(".")))):
-            exec('{0} = new.module("{0}")'.format(modname.rsplit(".", i)[0]))
-        globals()[modname.split(".")[0]] = eval(modname.split(".")[0])
+            module = types.ModuleType(modname.rsplit(".", i)[0])
+            exec('{0} = module'.format(modname.rsplit(".", i)[0]))
+            globals()[modname.split(".")[0]] = eval(modname.split(".")[0])
 
     def makeClasses(modname, classes):
         makeMod(modname)
         for c in classes:
-            exec('{0}.{1} = new.classobj("{1}", (), {{}})'.format(modname, c))
+            setattr(eval(modname), c, type(c, (), {}))
 
     makeClasses("django.db.models.base", ["ModelBase"])
     makeClasses("models", ["Game"])

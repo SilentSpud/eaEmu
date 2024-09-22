@@ -23,15 +23,6 @@ servers = {
         ("mercs2-pc.fesl.ea.com", 18710),  # makes theater server at port +1
         # ('mercs2-theater.fesl.ea.com', 18715), #not needed since hostname sent by fesl
     ],
-    # Burnout Paradise The Ultimate Box
-    "eaEmu.ea.games.pcburnout08.Burnout08Service": [
-        ("pcburnout08.ea.com", 21841),  # makes theater(ish) server at port +1
-    ],
-    # Need for Speed SHIFT (a.k.a. pro street 2)
-    "eaEmu.ea.games.nfsps2.Service": [
-        ("nfsps2-pc.fesl.ea.com", 18201),
-        ("nfsps2-pc.theater.ea.com", 18202),  # nomally 18206 FIXME: dont hardcode these relative port offsets
-    ],
 }
 
 defaultServices = [

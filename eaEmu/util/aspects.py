@@ -1,5 +1,5 @@
 from __future__ import absolute_import
-from aspects import *
+from classic.aspects import *
 
 
 class Aspect(object):

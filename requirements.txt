@@ -1,0 +1,5 @@
+Django==5.1.1
+PyYAML==6.0.2
+Twisted==24.7.0
+wxPython==4.2.2
+pyOpenSSL==24.2.1

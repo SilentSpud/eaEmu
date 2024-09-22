@@ -1,8 +1,9 @@
 #!/usr/bin/python
 import sys
 import twisted.plugin
-from eaEmu.util import aspects
 import eaEmu.twistd
+from eaEmu.ea.games.mercs2 import Service
+from eaEmu.util import aspects
 from twisted.application.service import IServiceMaker
 from zope.interface import implements
 
@@ -45,7 +46,6 @@ else:
     ## use twistd -n -o ra3 instead
     ## or just ./<this file>
     from twisted.application.service import Application
-    from eaEmu.ea.games.redalert3 import Service
 
     application = Application("EA Online Server Emulator")
     svc = Service(webPort=80)

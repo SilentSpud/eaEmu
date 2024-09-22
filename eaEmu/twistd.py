@@ -1,6 +1,6 @@
 import yaml
 
-from zope.interface import implements
+from zope.interface import implementer
 from twisted.python import usage
 from twisted.plugin import IPlugin
 from twisted.application.service import IServiceMaker
