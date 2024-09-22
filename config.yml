@@ -54,5 +54,3 @@ tap:
         #webPort: 8001
 
         #module: eaEmu.ea.games.mercs2
-        
-        module: eaEmu.gamespy.games.menofwar

@@ -30,7 +30,6 @@ except Exception as e:
     makeClasses("django.db.models.base", ["ModelBase"])
     makeClasses("models", ["Game"])
     # FIXME
-from .gamespy.cipher import *
 from .util.password import *
 from .util import aspects
 from .ea import errors

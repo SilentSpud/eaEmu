@@ -18,20 +18,6 @@ from twisted.internet import reactor
 ## TODO: move these to modules
 servers = {
     # TODO: maybe move port #'s and hosts into the classes themselves?
-    # Men of War
-    "eaEmu.gamespy.games.menofwar.MowService": [
-        ("gpcm.gamespy.com", 29900),
-        ("peerchat.gamespy.com", 6667),
-        ("files.bestway.com.ua", 80),
-        ("motd.gamespy.com", 80),
-        ("menofwarpc.available.gamespy.com", 27900),
-        ("menofwarpc.ms6.gamespy.com", 28910),
-        ("menofwarpc.gamestats.gamespy.com", 29920),
-        ("menofwarpc.master.gamespy.com", 29910),  # 29910 is keycheck, 27900 for natneg
-        ("menofwarpc.natneg1.gamespy.com", 27901),
-        ("menofwarpc.natneg2.gamespy.com", 27901),
-        ("menofwarpc.natneg3.gamespy.com", 27901),
-    ],
     # Mercs 2
     "eaEmu.ea.games.mercs2.Mercs2Service": [
         ("mercs2-pc.fesl.ea.com", 18710),  # makes theater server at port +1
@@ -46,16 +32,10 @@ servers = {
         ("nfsps2-pc.fesl.ea.com", 18201),
         ("nfsps2-pc.theater.ea.com", 18202),  # nomally 18206 FIXME: dont hardcode these relative port offsets
     ],
-    ## CNC 4
-    "eaEmu.ea.games.cnc4.Service": [
-        ("prodgos28.ea.com", 14611),
-    ],
 }
 
 defaultServices = [
-    #'eaEmu.ea.games.cnc4.Service',
-    "eaEmu.ea.games.redalert3.Service",
-    #'eaEmu.ea.games.nfsps2.Service',
+    "eaEmu.ea.games.mercs2.Mercs2Service",
 ]
 
 

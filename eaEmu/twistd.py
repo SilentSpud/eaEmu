@@ -7,6 +7,8 @@ from twisted.application.service import IServiceMaker
 from twisted.application import internet
 from twisted.python.usage import portCoerce
 
+from eaEmu.ea.games.mercs2 import Service
+
 from . import loadConfig
 
 
@@ -48,33 +50,7 @@ class EaEmuServiceFactory(object):
     tapname = options.tapname
 
     def makeService(self, options):
-        exec("from {0} import Service".format(options["module"]) in globals())
         return Service(**options)
 
 
 eaEmu = EaEmuServiceFactory()
-
-
-class PeerchatProxyOptions(usage.Options):
-    optParameters = [
-        ["port", "p", 6667, "The port to run the proxy on.", portCoerce],
-        ["host", "h", "tgo.teknogods.com", "The hostname of the peerchat server to connect to."],
-        ["game", "g", "redalert3pc", "The game id of the peerchat server."],
-    ]
-    tapname = "peerchatProxy"
-
-
-class PeerchatProxyServiceFactory(object):
-    implements(IServiceMaker, IPlugin)
-    description = "Proxy server that allows regular IRC clients to connect to peerchat servers."
-    options = PeerchatProxyOptions
-    tapname = options.tapname
-
-    def makeService(self, options):
-        config = loadConfig("config.yml")
-        from eaEmu.gamespy.peerchatProxy import Service
-
-        return Service(**options)
-
-
-peerchatProxy = PeerchatProxyServiceFactory()

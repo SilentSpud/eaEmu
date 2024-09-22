@@ -461,32 +461,3 @@ class EaMsgHlr_GetTelemetryToken(MessageHandler):
                 "telemetryToken": base64.b64encode("{0},{1},enUS,^{2}\n".format(self.server.transport.getHost().host, 9955, randBytes)),
             }
         )
-
-
-class EaMsgHlr_GameSpyPreAuth(MessageHandler):
-    # no inputs
-    def makeReply(self):
-        import random, string
-
-        chal = "".join(random.choice(string.ascii_lowercase) for _ in range(8))
-        # chal = 'rkoqlbdc' ## paired with ticket, below
-        self.server.session.key = chal
-        self.server.session.save()
-        return self.msg.makeReply(
-            {
-                "challenge": chal,
-                ## this base64 string is incorrectly padded -- lacks 1 base64 character it seems.
-                ## this is the authToken that the client will send to gpcm.gamespy.com soon after this transaction completes.
-                ## it may or may not be decodable by or meaningful to the client
-                #'ticket':'CCUNTxOjYkDHJuDB9h0fw/skLy+s9DUCol1LFKmjk7Rc6/suwmWbFsKXbdZ1uZoEoQo7jHwlW7ZVw5FidVhdX8Yaw==',
-                ## HACK, TODO: use login name instead of ticket so that gpcm knows who we are:
-                ## this is vulnerable to impersonation since we trust the gpcm login msg isnt spoofed
-                "ticket": self.server.session.user.login_dirty,  ## this is sent as 'authtoken' to gpcm
-            }
-        )
-
-    def handle(self):
-        self.Reply()
-
-        ## start ping service now that we're successfully logged in
-        EaCmd_Ping(self.server).startLoop()
