@@ -11,8 +11,8 @@ def main(argv):
     parser.add_argument("-p" "--publickey", metavar="PUBLICKEY_HEX", type=str, required=False, help="1024-bit public key of the host certificate in hexadecimal (Default is to load from fesl.mod.txt)")
     args = parser.parse_args(argv[1:])
 
-    oldDomain = "fesl.ea.com"
-    newDomain = "fakeea.test"  # RFC 2606 guarantees this will never exist
+    oldDomain = "ea.com"
+    newDomain = "r.test"  # RFC 2606 guarantees this will never exist
 
     oldKey = """
         9275A15B080240B89B402FD59C71C4515871D8F02D937FD30C8B1C7DF92A0486

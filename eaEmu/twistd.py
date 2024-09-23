@@ -44,7 +44,7 @@ class EaEmuOptions(usage.Options):
 
 
 class EaEmuServiceFactory(object):
-    implements(IServiceMaker, IPlugin)
+    implementer(IServiceMaker, IPlugin)
     description = "EA Online Server Emulator"
     options = EaEmuOptions
     tapname = options.tapname

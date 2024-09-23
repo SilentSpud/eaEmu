@@ -117,7 +117,7 @@ class Mercs2Session(LoginSession):
         pid = int(msg.map["PID"])  # PID in the response is what slot joiner should occupy
         rq = game.entergamerequest_set.get(slot=pid)
         self.theater.PlayerJoinGame(rq.session, game_id=rq.game_id)
-        Mercs2Theater.connections[rq.session_id].SendEnterGameEnterGame(
+        self.theater.connections[rq.session_id].SendEnterGameEnterGame(
             {  # HACK
                 "LID": game.list_id,
                 "GID": game.id,
@@ -145,7 +145,7 @@ mercs2theater = Theater.getTheater("mercs2")
 
 
 class Mercs2LoginServer(EaServer):
-    theater = mercs2theater
+    theater = Theater.getTheater("mercs2")
 
     # this class handles id, TXN, flags, theater.Session does the important parts of the msg.map
     def handleRequest(self, msg):
